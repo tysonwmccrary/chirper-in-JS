@@ -16,9 +16,10 @@ $chirpButton.click(postChirp);
 function postChirp() {
     var chirp = {
         message: $chirpField.val(),
-        user: 'David',
+        user: 'Tyson',
         timestamp: new Date().toISOString()
     };
+
     $.ajax({
         method: 'POST',
         url: '/api/chirps',

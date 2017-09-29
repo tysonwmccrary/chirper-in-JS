@@ -13,7 +13,7 @@ var server = http.createServer(function(request, response) {
         response.writeHead(200, { 'Content-Type': 'text/html' });
         fs.createReadStream(path.join(clientPath, 'index.html')).pipe(response);
     } else if (urlData.pathname === '/api/chirps') {
-        switch (response.method) {
+        switch (request.method) {
             case 'GET':
                 // GET LOGIC
                 response.writeHead(200, { 'Content-Type': 'application/json' });
