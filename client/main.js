@@ -19,14 +19,14 @@ function postChirp() {
         user: 'Tyson',
         timestamp: new Date().toISOString()
     };
-
+    console.log(chirp);
     $.ajax({
         method: 'POST',
         url: '/api/chirps',
         contentType: 'application/json',
         data: JSON.stringify(chirp)
     }).then(function (success) {
-        // successfully POSTed new data to the server
+        // successfully POST new data to the server
         $chirpField.val('');
         $chirpButton.prop('disabled', true);
         getChirps();
@@ -41,6 +41,7 @@ function getChirps() {
         method: 'GET',
         url: '/api/chirps'
     }).then(function (chirps) {
+        //console.log(chirps);
         $chirpList.empty();
         for (var i = 0; i < chirps.length; i++) {
             var $chirpDiv = $('<div class="chirp"></div>');
